@@ -10,10 +10,10 @@ import re
 
 def main():
     base_url = 'http://www.piaotian.net/html/1/1705/'
-    current_page_link = '762992.html'
-    fout = open('tmp.txt', 'w')
+    current_page_link = '764264.html'
+    fout = open('tmp.txt', 'a')
     while True:
-        pageHTML = urllib2.urlopen(base_url + current_page_link).read().decode('GBK')
+        pageHTML = urllib2.urlopen(base_url + current_page_link).read().decode('GBK', 'ignore')
         pageSoup = bs4.BeautifulSoup(pageHTML, 'lxml')
         pageSoup.find('h1').a.extract()
         print pageSoup.find('h1').text.strip().encode('utf-8')
